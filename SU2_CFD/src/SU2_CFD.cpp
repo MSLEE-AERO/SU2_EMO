@@ -158,6 +158,8 @@ int main(int argc, char *argv[]) {
   /*--- Finalize OpenMP. ---*/
   omp_finalize();
 
+	_exit(0); // minsul
+
   return EXIT_SUCCESS;
 
 }

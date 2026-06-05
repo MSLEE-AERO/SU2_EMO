@@ -1156,7 +1156,8 @@ void CDriver::FinalizeSolver(CSolver ****solver, CGeometry **geometry,
 
   for (int iMGlevel = 0; iMGlevel <= config->GetnMGLevels(); iMGlevel++) {
     for (unsigned int iSol = 0; iSol < MAX_SOLS; iSol++){
-      delete solver[val_iInst][iMGlevel][iSol];
+      //delete solver[val_iInst][iMGlevel][iSol];
+      solver[val_iInst][iMGlevel][iSol]=nullptr;
     }
     delete [] solver[val_iInst][iMGlevel];
   }
@@ -2346,7 +2347,8 @@ void CDriver::FinalizeNumerics(CNumerics *****numerics, CSolver***, CGeometry**,
 
       for (unsigned int iTerm = 0; iTerm < MAX_TERMS*omp_get_max_threads(); iTerm++) {
 
-        delete numerics[val_iInst][iMGlevel][iSol][iTerm];
+        //delete numerics[val_iInst][iMGlevel][iSol][iTerm];
+        numerics[val_iInst][iMGlevel][iSol][iTerm]=nullptr;
       }
       delete [] numerics[val_iInst][iMGlevel][iSol];
     }
